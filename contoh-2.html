@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Back to Top Button Example</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Back to Top Button */
+      #backToTopBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: #555; /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 10px; /* Some padding */
+        border-radius: 50%; /* Rounded corners to make it a circle */
+        font-size: 16px; /* Font size */
+        width: 50px; /* Width of the button */
+        height: 50px; /* Height of the button */
+        text-align: center; /* Center the text inside */
+        line-height: 20px; /* Align the arrow vertically */
+        display: flex; /* Flexbox for vertical alignment */
+        flex-direction: column; /* Stack icon and text vertically */
+        align-items: center; /* Center items horizontally */
+      }
+
+      #backToTopBtn i {
+        margin-bottom: 1px; /* Space between icon and text */
+      }
+
+      #backToTopBtn:hover {
+        background-color: #333; /* Add a dark-grey background on hover */
+      }
+
+      #backToTopBtn div {
+        font-size: 12px; /* Smaller font for the text */
+      }
+
+      /* Smooth scroll behavior for the entire page */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Content of the page -->
+    <div style="height: 1500px">
+      <h1>Scroll Down to See the Button</h1>
+      <p>Scroll down this frame to see the "Back to Top" button.</p>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">
+      <i class="fa-solid fa-arrow-up"></i>
+      <div>Top</div>
+    </button>
+
+    <script>
+      // Get the button
+      let mybutton = document.getElementById("backToTopBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "flex";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document smoothly
+      function topFunction() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
